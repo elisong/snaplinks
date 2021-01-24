@@ -23,7 +23,7 @@ jobs:
           repository: elisong/script-blocks
           # token: ${{ secrets.SLTOKEN }}
       - name: RUN
-        run: ./snap.sh
+        run: snap.sh
         shell: bash
 
       - name: Commit changes
