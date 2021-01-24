@@ -1,0 +1,35 @@
+name: Run it every day
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  snaplinks:
+    name: Lint code base
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+      - name: Check out elisong/script-blocks
+        uses: actions/checkout@master
+        with:
+          repository: elisong/script-blocks
+          token: ${{ secrets.SLTOKEN }}
+      - name: RUN
+        run: ./snap.sh
+        shell: bash
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Eli Song
+          author_email: elisong.ah@gmail.com
+          message: "auto commit"
+          add: "*.md"
