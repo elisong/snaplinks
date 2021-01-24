@@ -10,32 +10,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          path: "./main"
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: "3.8"
           architecture: "x64"
-      - name: Checkout dependency repo
-        uses: actions/checkout@v2
-        with:
-          repository: elisong/toolchain
-          token: ${{ secrets.SLTOKEN }}
-          path: "./toolchain"
       - name: Install dependency
         run: |
-          pip install -r toolchain/requirements.txt
-          python toolchain/setup.py  install
+          python -m pip install --upgrade pip
+          pip install git+git://github.com/elisong/blocks.git
       - name: Google keywords
-        run: |
-          cd main
-          /bin/bash snap.sh
+        run: /bin/bash snap.sh
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
-          cwd: "./main"
           author_name: Eli Song
           author_email: elisong.ah@gmail.com
           message: "auto commit"

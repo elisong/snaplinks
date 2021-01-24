@@ -1,6 +1,6 @@
 while read kw; do
     mkdir -p  "$kw"
     cd "$kw"
-    google "$kw" --num 2 --output-file "$(date '+%Y-%m-%d')"
+    search "$kw" --num 30 --output-file "$(date '+%Y-%m-%d')"
     cd ..
 done <keywords.txt
