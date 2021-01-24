@@ -21,7 +21,8 @@ jobs:
       - name: Checkout dependency repo
         uses: actions/checkout@v2
         with:
-          repository: elisong/toolchain.git
+          repository: elisong/toolchain
+          token: ${{ secrets.SLTOKEN }}
           path: "./toolchain"
       - name: Install dependency
         run: |
