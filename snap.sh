@@ -1,4 +1,3 @@
-python -m pip install git+git://github.com/elisong/script-blocks.git
 current=$(date '+%Y%m%d')
 while read kw; do
     mkdir -p "$kw"
