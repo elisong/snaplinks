@@ -25,6 +25,8 @@ jobs:
       - name: Google keywords
         run: |
           python snap.py
+        shell: bash
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
