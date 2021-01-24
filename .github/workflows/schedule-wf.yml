@@ -4,11 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
-defaults:
-  run:
-    shell: bash
-    working-directory: .
-
 jobs:
   snaplinks:
     name: Snapshot links for certain keywords
@@ -28,7 +23,8 @@ jobs:
           pip install git+git://github.com/elisong/script-blocks.git
 
       - name: Google keywords
-        run: python3 snap.py
+        run: |
+          python snap.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:

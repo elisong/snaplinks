@@ -3,11 +3,6 @@ name: Run it on push
 on:
   push:
 
-defaults:
-  run:
-    shell: bash
-    working-directory: .
-
 jobs:
   snaplinks:
     name: Snapshot links for certain keywords
@@ -26,7 +21,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install git+git://github.com/elisong/script-blocks.git
       - name: Google keywords
-        run: python snap.py
+        run: |
+          python snap.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
