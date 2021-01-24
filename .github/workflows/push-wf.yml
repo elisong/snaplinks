@@ -21,10 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install git+git://github.com/elisong/script-blocks.git
       - name: Google keywords
-        run: |
-          git update-index --chmod=+x ./snap.sh
-          ./snap.sh
-        shell: bash
+        run: /bin/bash snap.sh
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
