@@ -3,6 +3,11 @@ name: Run it on push
 on:
   push:
 
+defaults:
+  run:
+    shell: bash
+    working-directory: .
+
 jobs:
   snaplinks:
     name: Snapshot links for certain keywords
