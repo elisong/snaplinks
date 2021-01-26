@@ -1,4 +1,4 @@
-# Snapshot google links for certain keyword day by day
+# Snapshot google links for certain keyword daily scheduled
 
 for example:
 
