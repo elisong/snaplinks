@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install git+git://github.com/elisong/cmdkit.git
       - name: Google keywords
-        run: /bin/bash snap.sh
+        run: /bin/bash search.sh
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
